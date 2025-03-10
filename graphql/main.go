@@ -4,8 +4,8 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
-	"github.com/99designs/gqlgen/handler"
 	"github.com/kelseyhightower/envconfig"
 )
 
@@ -25,7 +25,8 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	http.Handle("graphql", handler.GraphQL(s.ToExecutableSchema))
+	http.Handle("graphql", handler.New((s.ToExecutableSchema())))
+	log.Println("Failed here in main.go")
 	http.Handle("/playground", playground.Handler("koch", "/graphql"))
 
 	log.Fatal(http.ListenAndServe(":8080", nil))

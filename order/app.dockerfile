@@ -1,7 +1,7 @@
 # Build Stage
 FROM golang:1.23.5-alpine AS build
 
-# Install necessary dependencies
+# Install dependencies
 RUN apk --no-cache add gcc g++ make ca-certificates
 
 # Set up working directory
@@ -14,8 +14,8 @@ RUN go mod download
 # Copy project files
 COPY . .
 
-# Build the account microservice binary
-RUN GO111MODULE=on go build -o /go/bin/app ./account/cmd/account
+# Build the application (fixing incorrect path)
+RUN GO111MODULE=on go build -o /go/bin/app ./order/cmd/catalog
 
 # Final Runtime Image
 FROM alpine:3.11
@@ -26,8 +26,8 @@ WORKDIR /usr/bin
 # Copy built application from the build stage
 COPY --from=build /go/bin/app .
 
-# Expose the service port
+# Expose the application port
 EXPOSE 8080
 
-# Run the account service
+# Start the application
 CMD ["./app"]
