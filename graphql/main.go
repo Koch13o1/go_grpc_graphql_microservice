@@ -25,7 +25,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	http.Handle("graphql", handler.New((s.ToExecutableSchema())))
+	http.Handle("/graphql", handler.New((s.ToExecutableSchema())))
 	log.Println("Failed here in main.go")
 	http.Handle("/playground", playground.Handler("koch", "/graphql"))
 
