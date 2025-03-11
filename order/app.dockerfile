@@ -15,7 +15,7 @@ RUN go mod download
 COPY . .
 
 # Build the application (fixing incorrect path)
-RUN GO111MODULE=on go build -o /go/bin/app ./order/cmd/catalog
+RUN GO111MODULE=on go build -o /go/bin/app ./order/cmd/order
 
 # Final Runtime Image
 FROM alpine:3.11

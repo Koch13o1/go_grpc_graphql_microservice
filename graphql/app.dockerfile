@@ -15,7 +15,7 @@ RUN go mod download
 COPY . .
 
 # Build the catalog microservice binary
-RUN GO111MODULE=on go build -o /go/bin/app ./catalog/cmd/graphql
+RUN GO111MODULE=on go build -mod vendor -o /go/bin/app ./graphql
 
 # Final Runtime Image
 FROM alpine:3.11
