@@ -67,6 +67,7 @@ Each microservice exposes the following endpoints:
 
 ---
 ## 🏛️ Project Structure
+Every Service has the following SDLC structure
 ```
 /cmd
   ├── main.go              # Entry point
@@ -92,8 +93,8 @@ Ensure you have the following installed:
 ### Steps to Run
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/golang-microservices-project.git
-   cd golang-microservices-project
+   git clone https://github.com/yourusername/go_grpc_graphql_microservice.git
+   cd go_grpc_graphql_microservice
    ```
 2. Start all services using Docker Compose:
    ```sh
