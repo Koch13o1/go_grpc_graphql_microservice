@@ -1,4 +1,4 @@
-# Massive Golang Microservices Project
+# Scalable Microservices-Based Backend for E-commerce
 
 This repository contains a **massive Golang microservices project** that integrates **GraphQL, gRPC, Docker, PostgreSQL, and Elasticsearch**. The system is designed to be highly scalable, modular, and efficient.
 
